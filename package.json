@@ -1,6 +1,6 @@
 {
-	"name": "cyberlang",
-	"displayName": "cyberlang",
+	"name": "cyber",
+	"displayName": "cyber",
 	"icon": "icon.png",
 	"version": "0.0.1",
 	"description": "Language support for the Cyber programming language",
