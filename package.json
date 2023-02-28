@@ -3,7 +3,7 @@
 	"displayName": "cyberlang",
 	"icon": "icon.png",
 	"version": "0.0.1",
-	"description": "test",
+	"description": "Language support for the Cyber programming language",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/daelonsuzuka/cyber-vscode"
