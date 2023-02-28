@@ -31,7 +31,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.language.cyber",
-				"match": "\\b(true|false|null|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
+				"match": "\\b(true|false|null|tagtype|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
 			}]
 		},
 		"control_flow": {

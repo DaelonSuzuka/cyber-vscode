@@ -76,3 +76,13 @@ for 1..101 each i:
         print 'Buzz'
     else:
         print i
+
+tagtype Fruit:
+    apple
+    orange
+    banana
+    kiwi
+
+fruit = Fruit#kiwi
+print fruit          -- '#kiwi'
+print number(fruit)  -- '3'
