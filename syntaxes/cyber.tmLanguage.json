@@ -9,6 +9,9 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#numbers"
+		},
+		{
 			"include": "#comment"
 		}
 	],
@@ -30,6 +33,30 @@
 				}
 			]
 		},
+        "numbers": {
+            "patterns": [
+                {
+                    "match": "\\b(?i:0x\\h*)\\b",
+                    "name": "constant.numeric.integer.hexadecimal.cyber"
+                },
+                {
+                    "match": "\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))\\b",
+                    "name": "constant.numeric.float.cyber"
+                },
+                {
+                    "match": "\\b(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))\\b",
+                    "name": "constant.numeric.float.cyber"
+                },
+                {
+                    "match": "\\b(?i:(\\d+e[\\-\\+]?\\d+))\\b",
+                    "name": "constant.numeric.float.cyber"
+                },
+                {
+                    "match": "\\b\\d+\\b",
+                    "name": "constant.numeric.integer.cyber"
+                }
+            ]
+        },
 		"comment": {
 			"patterns": [
 				{
