@@ -12,19 +12,13 @@
 			"include": "#builtin_func"
 		},
 		{
+			"include": "#function_call"
+		},
+		{
 			"include": "#control_flow"
 		},
 		{
-			"include": "#logic_op"
-		},
-		{
-			"include": "#compare_op"
-		},
-		{
-			"include": "#arithmetic_op"
-		},
-		{
-			"include": "#assignment_op"
+			"include": "#operators"
 		},
 		{
 			"include": "#strings"
@@ -49,6 +43,26 @@
         "builtin_func": {
             "match": "\\b(print)\\b",
             "name": "support.function.builtin.cyber"
+        },
+        "function_call": {
+            "match": "[.\\s]([a-zA-Z_]\\w*)\\s*[\\(]",
+            "name": "entity.name.function.cyber"
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "include": "#logic_op"
+                },
+                {
+                    "include": "#compare_op"
+                },
+                {
+                    "include": "#arithmetic_op"
+                },
+                {
+                    "include": "#assignment_op"
+                }
+            ]
         },
         "logic_op": {
             "match": "\\b(and|or|not)\\b",
