@@ -9,6 +9,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#builtin_func"
+		},
+		{
 			"include": "#control_flow"
 		},
 		{
@@ -34,7 +37,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.language.cyber",
-				"match": "\\b(print|true|false|null|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
+				"match": "\\b(true|false|null|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
 			}]
 		},
 		"control_flow": {
@@ -43,6 +46,10 @@
 				"match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass)\\b"
 			}]
 		},
+        "builtin_func": {
+            "match": "\\b(print)\\b",
+            "name": "support.function.builtin.cyber"
+        },
         "logic_op": {
             "match": "\\b(and|or|not)\\b",
             "name": "keyword.operator.wordlike.cyber"

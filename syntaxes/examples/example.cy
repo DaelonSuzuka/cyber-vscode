@@ -5,9 +5,19 @@ worlds.append(m.random())
 for worlds each w:
     print 'Hello, {w}!'
 
+print('test')
+
 a = true
 if a:
     print 'a is true'
+
+d = dist 100 100 200 200  -- Calls the function `dist`.
+
+func random():            -- Function with no parameters.
+    return 4
+
+r = random                -- Returns the function itself as a value. Does not call the function `random`.
+r = random()              -- Calls the function `random`.
 
 list = [234]
 -- Append a value.
