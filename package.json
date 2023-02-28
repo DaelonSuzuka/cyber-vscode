@@ -1,8 +1,8 @@
 {
 	"name": "cyber",
-	"displayName": "cyber",
+	"displayName": "Cyber",
 	"icon": "icon.png",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Language support for the Cyber programming language",
 	"repository": {
 		"type": "git",
