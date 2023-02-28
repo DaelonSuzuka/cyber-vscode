@@ -2,26 +2,63 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Cyber",
 	"patterns": [
+        {
+			"include": "#comment"
+		},
 		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#control_flow"
+		},
+		{
+			"include": "#logic_op"
+		},
+		{
+			"include": "#compare_op"
+		},
+		{
+			"include": "#arithmetic_op"
+		},
+		{
+			"include": "#assignment_op"
 		},
 		{
 			"include": "#strings"
 		},
 		{
 			"include": "#numbers"
-		},
-		{
-			"include": "#comment"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "keyword.control.cyber",
-				"match": "\\b(import|if|then|else|and|or|not|try|catch|for|while|each|break|return|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
+				"name": "keyword.language.cyber",
+				"match": "\\b(print|true|false|null|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
 			}]
 		},
+		"control_flow": {
+			"patterns": [{
+				"name": "keyword.control.cyber",
+				"match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass)\\b"
+			}]
+		},
+        "logic_op": {
+            "match": "\\b(and|or|not)\\b",
+            "name": "keyword.operator.wordlike.cyber"
+        },
+        "compare_op": {
+            "match": "<=|>=|==|<|>|!=",
+            "name": "keyword.operator.comparison.cyber"
+        },
+        "arithmetic_op": {
+            "match": "\\+=|-=|\\*=|/=|%=|&=|\\|=|\\*|/|%|\\+|-|<<|>>|&|\\||\\^|~",
+            "name": "keyword.operator.arithmetic.cyber"
+        },
+        "assignment_op": {
+            "match": "=",
+            "name": "keyword.operator.assignment.cyber"
+        },
 		"strings": {
 			"name": "string.quoted.double.cyber",
 			"begin": "[\"']",

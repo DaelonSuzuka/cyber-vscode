@@ -5,11 +5,57 @@ worlds.append(m.random())
 for worlds each w:
     print 'Hello, {w}!'
 
+a = true
+if a:
+    print 'a is true'
 
--- Fizz Buzz problem from https://code.golf
--- Print the numbers from 1 to 100 inclusive, each on their own line.
--- If, however, the number is a multiple of three then print Fizz instead, and if the number is a multiple of five then print Buzz.
--- If multiple conditions hold true then all replacements should be printed, for example 15 should print FizzBuzz.
+list = [234]
+-- Append a value.
+list.append 123
+print list[-1]     -- Prints '123'
+
+-- Inserting a value at an index.
+list.insert(1, 345)
+
+-- Get the length.
+print list.len()  -- Prints '2'
+
+-- Sort the list in place.
+list.sort((a, b) => a < b)
+
+-- Iterating a list.
+for list each it:
+    print it
+
+-- Remove an element at a specific index.
+list.remove(1)
+
+map = { a: 123, b: () => 5 }
+print map['a']
+
+-- You can also access the map using an access expression.
+print map.a
+
+-- Map entries can be separated by the new line.
+map = {
+    foo: 1
+    bar: 2
+}
+
+colors = {}:
+    red: 0xFF0000
+    green: 0x00FF00
+    blue: 0x0000FF
+    dump func (c):
+        print c.red
+        print c.green
+        print c.blue
+
+    -- Nested map.
+    darker {}: 
+        red: 0xAA0000
+        green: 0x00AA00
+        blue: 0x0000AA
 
 for 1..101 each i:
     if i % 3 == 0 and i % 5 == 0:
