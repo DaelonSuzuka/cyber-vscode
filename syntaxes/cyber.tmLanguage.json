@@ -21,8 +21,8 @@
 		},
 		"strings": {
 			"name": "string.quoted.double.cyber",
-			"begin": "\"",
-			"end": "\"",
+			"begin": "[\"']",
+			"end": "[\"']",
 			"patterns": [
 				{
 					"name": "constant.character.escape.cyber",
