@@ -83,7 +83,7 @@ colors = {}:
         print c.blue
 
     -- Nested map.
-    darker {}: 
+    darker {}:
         red: 0xAA0000
         green: 0x00AA00
         blue: 0x0000AA
@@ -111,5 +111,6 @@ print number(fruit)  -- '3'
 
 object Test:
     value
+    other_value
 
-test = Test{value: 1}
+test = Test { value: 0.0, other_value: 'test' } 

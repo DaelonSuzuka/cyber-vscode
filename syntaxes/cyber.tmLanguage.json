@@ -52,7 +52,10 @@
                     "include": "#operators"
                 },
                 {
-                    "include": "#objects"
+                    "include": "#object_instance"
+                },
+                {
+                    "include": "#numbers"
                 },
                 {
                     "include": "#strings"
@@ -91,13 +94,47 @@
                 }
             }
         },
-        "objects": {
-            "match": "([a-zA-Z_]\\w*)\\s*[{]",
-            "captures": {
+        "object_instance": {
+            "name": "meta.object.cyber",
+            "begin": "([a-zA-Z_]\\w*)\\s*{(?:(?=[^}]*}(?!\\s*:)))",
+            "end": "}",
+            "beginCaptures": {
                 "1": {
                     "name": "entity.name.type.object.cyber"
+                },
+                "2": {
+                    "name": "entity.name.type.class.cyber"
                 }
-            }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.separator.parameters.cyber"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#object_parameters"
+                }
+            ]
+        },
+        "object_parameters": {
+            "begin": "([a-zA-Z_]\\w*)",
+            "end": "(,)|(?=\\))",
+            "beginCaptures": {
+                "1": {
+                    "name": "variable.parameter.function.language.cyber"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.separator.parameters.cyber"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#base_expression"
+                }
+            ]
         },
         "tag_declaration": {
             "match": "(tagtype)\\s*([a-zA-Z_]\\w*)\\s*(:)",
