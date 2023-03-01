@@ -13,7 +13,7 @@ func foo():
     pass
 
 
-func add(x int, y int) int:
+func add(x float, y float) float:
     return x + y
 
 func fib(n int) int:
