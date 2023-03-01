@@ -6,6 +6,9 @@
 			"include": "#comment"
 		},
 		{
+			"include": "#tag_declaration"
+		},
+		{
 			"include": "#base_expression"
 		},
 		{
@@ -15,16 +18,13 @@
 			"include": "#function_declaration"
 		},
 		{
+			"include": "#object_declaration"
+		},
+		{
 			"include": "#function_call"
 		},
 		{
 			"include": "#control_flow"
-		},
-		{
-			"include": "#operators"
-		},
-		{
-			"include": "#strings"
 		},
 		{
 			"include": "#numbers"
@@ -34,7 +34,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.language.cyber",
-				"match": "\\b(true|false|null|tagtype|as|var|object|is|coinit|coresume|coyield|capture|static|export)\\b"
+				"match": "\\b(true|false|none|as|var|is|coinit|coresume|coyield|capture|static|export)\\b"
 			}]
 		},
 		"control_flow": {
@@ -52,15 +52,21 @@
                     "include": "#operators"
                 },
                 {
+                    "include": "#objects"
+                },
+                {
                     "include": "#strings"
                 },
                 {
                     "include": "#types"
+                },
+                {
+                    "include": "#tags"
                 }
             ]
 		},
         "types": {
-            "match": "\\b(int)\\b",
+            "match": "\\b(int|bool|float)\\b",
             "name": "entity.name.type.class.cyber"
         },
         "builtin_func": {
@@ -70,6 +76,53 @@
         "function_call": {
             "match": "[.\\s]([a-zA-Z_]\\w*)\\s*[\\(]",
             "name": "entity.name.function.cyber"
+        },
+        "object_declaration": {
+            "match": "(object)\\s*([a-zA-Z_]\\w*)\\s*(:)",
+            "captures": {
+                "1": {
+                    "name": "keyword.language.cyber"
+                },
+                "2": {
+                    "name": "entity.name.type.object.cyber"
+                },
+                "3": {
+                    "name": "punctuation.section.object.begin.cyber"
+                }
+            }
+        },
+        "objects": {
+            "match": "([a-zA-Z_]\\w*)\\s*[{]",
+            "captures": {
+                "1": {
+                    "name": "entity.name.type.object.cyber"
+                }
+            }
+        },
+        "tag_declaration": {
+            "match": "(tagtype)\\s*([a-zA-Z_]\\w*)\\s*(:)",
+            "captures": {
+                "1": {
+                    "name": "keyword.language.cyber"
+                },
+                "2": {
+                    "name": "entity.name.type.tag.cyber"
+                },
+                "3": {
+                    "name": "punctuation.section.tag.begin.cyber"
+                }
+            }
+        },
+        "tags": {
+            "match": "([a-zA-Z_]\\w*)(?:#)([a-zA-Z_]\\w*)",
+            "captures": {
+                "1": {
+                    "name": "entity.name.type.class.cyber"
+                },
+                "2": {
+                    "name": "string.quoted.double.cyber"
+                }
+            }
         },
         "function_declaration": {
             "name": "meta.function.cyber",

@@ -107,3 +107,9 @@ tagtype Fruit:
 fruit = Fruit#kiwi
 print fruit          -- '#kiwi'
 print number(fruit)  -- '3'
+
+
+object Test:
+    value
+
+test = Test{value: 1}
