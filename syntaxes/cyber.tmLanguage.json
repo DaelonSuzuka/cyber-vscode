@@ -6,10 +6,13 @@
 			"include": "#comment"
 		},
 		{
-			"include": "#keywords"
+			"include": "#base_expression"
 		},
 		{
 			"include": "#builtin_func"
+		},
+		{
+			"include": "#function_declaration"
 		},
 		{
 			"include": "#function_call"
@@ -31,15 +34,35 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.language.cyber",
-				"match": "\\b(true|false|null|tagtype|import|as|var|func|object|is|coinit|coresume|coyield|capture|static|export|pass)\\b"
+				"match": "\\b(true|false|null|tagtype|as|var|object|is|coinit|coresume|coyield|capture|static|export)\\b"
 			}]
 		},
 		"control_flow": {
 			"patterns": [{
 				"name": "keyword.control.cyber",
-				"match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass)\\b"
+				"match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass|import)\\b"
 			}]
 		},
+		"base_expression": {
+			"patterns": [
+                {
+                    "include": "#keywords"
+                },
+                {
+                    "include": "#operators"
+                },
+                {
+                    "include": "#strings"
+                },
+                {
+                    "include": "#types"
+                }
+            ]
+		},
+        "types": {
+            "match": "\\b(int)\\b",
+            "name": "entity.name.type.class.cyber"
+        },
         "builtin_func": {
             "match": "\\b(print)\\b",
             "name": "support.function.builtin.cyber"
@@ -47,6 +70,71 @@
         "function_call": {
             "match": "[.\\s]([a-zA-Z_]\\w*)\\s*[\\(]",
             "name": "entity.name.function.cyber"
+        },
+        "function_declaration": {
+            "name": "meta.function.cyber",
+            "begin": "(?x) \\s*\n (func) \\s+\n ([a-zA-Z_]\\w*) \\s*\n (?=\\()",
+            "end": "((:)|(?=['\"\\n]))",
+            "beginCaptures": {
+                "1": {
+                    "name": "storage.type.function.cyber"
+                },
+                "2": {
+                    "name": "entity.name.function.cyber"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.section.function.begin.cyber"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#parameters"
+                },
+                {
+                    "comment": "return type",
+                    "match": "\\s*([a-zA-Z_]\\w*)\\s*\\:",
+                    "name": "entity.name.type.class.cyber"
+                }
+            ]
+        },
+        "parameters": {
+            "name": "meta.function.parameters.cyber",
+            "begin": "(\\()",
+            "end": "(\\))",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.parameters.begin.cyber"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.parameters.end.cyber"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#annotated_parameter"
+                }
+            ]
+        },
+        "annotated_parameter": {
+            "begin": "([a-zA-Z_]\\w*) (?:\\b([a-zA-Z_]\\w*))?",
+            "end": "(,)|(?=\\))",
+            "beginCaptures": {
+                "1": {
+                    "name": "variable.parameter.function.language.cyber"
+                },
+                "2": {
+                    "name": "entity.name.type.class.cyber"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.separator.parameters.cyber"
+                }
+            }
         },
         "operators": {
             "patterns": [
@@ -81,21 +169,44 @@
             "name": "keyword.operator.assignment.cyber"
         },
 		"strings": {
-			"name": "string.quoted.double.cyber",
-			"begin": "[\"']",
-			"end": "[\"']",
-			"patterns": [
-				{
-					"name": "constant.character.escape.cyber",
-					"match": "\\\\."
-				}
-			]
+            "patterns": [
+                {
+                    "name": "string.quoted.double.cyber",
+                    "begin": "[\"]",
+                    "end": "[\"]",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.cyber",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.cyber",
+                    "begin": "[']",
+                    "end": "[']",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.cyber",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
 		},
         "numbers": {
             "patterns": [
                 {
                     "match": "\\b(?i:0x\\h*)\\b",
                     "name": "constant.numeric.integer.hexadecimal.cyber"
+                },
+                {
+                    "match": "\\b(?i:0o\\h*)\\b",
+                    "name": "constant.numeric.octal.hexadecimal.cyber"
+                },
+                {
+                    "match": "\\b(?i:0b\\h*)\\b",
+                    "name": "constant.numeric.binary.hexadecimal.cyber"
                 },
                 {
                     "match": "\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))\\b",

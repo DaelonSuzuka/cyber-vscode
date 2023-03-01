@@ -1,5 +1,27 @@
 import m 'math'
 
+-- comments
+
+a = 1.0 -- comments after code
+a = 123.0e4 -- comments after code
+
+a = 0xFF     -- hex.
+a = 0o17     -- octal.
+a = 0b1010   -- binary.
+
+func foo():
+    pass
+
+
+func add(x int, y int) int:
+    return x + y
+
+func fib(n int) int:
+    if n < 2:
+        return n
+    return fib(n - 1) + fib(n - 2)
+print(fib(30))
+
 worlds = ['World', '世界', 'दुनिया', 'mundo']
 worlds.append(m.random())
 for worlds each w:
@@ -11,18 +33,17 @@ a = true
 if a:
     print 'a is true'
 
-d = dist 100 100 200 200  -- Calls the function `dist`.
+d = dist 100 100 200 200
 
-func random():            -- Function with no parameters.
+func random():
     return 4
 
-r = random                -- Returns the function itself as a value. Does not call the function `random`.
-r = random()              -- Calls the function `random`.
+r = random
+r = random()
 
 list = [234]
--- Append a value.
 list.append 123
-print list[-1]     -- Prints '123'
+print list[-1]
 
 -- Inserting a value at an index.
 list.insert(1, 345)
