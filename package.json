@@ -46,7 +46,8 @@
 					"cy"
 				],
 				"extensions": [
-					".cy"
+					".cy",
+					".cyb"
 				],
 				"configuration": "./configurations/cyber-configuration.json"
 			}
