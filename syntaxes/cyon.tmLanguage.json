@@ -1,0 +1,186 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.cyon",
+    "name": "cyon",
+    "fileTypes": [
+        "cyon"
+    ],
+    "scopeName": "source.cyon",
+    "patterns": [
+        {
+            "include": "#value"
+        }
+    ],
+    "repository": {
+        "array": {
+            "begin": "\\[",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.array.begin.cyon"
+                }
+            },
+            "end": "\\]",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.array.end.cyon"
+                }
+            },
+            "name": "meta.structure.array.cyon",
+            "patterns": [
+                {
+                    "include": "#value"
+                },
+                {
+                    "match": ",",
+                    "name": "punctuation.separator.array.cyon"
+                },
+                {
+                    "match": "[^\\s\\]]",
+                    "name": "invalid.illegal.expected-array-separator.cyon"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.comment.cyon"
+                        }
+                    },
+                    "match": "(--).*$\\n?",
+                    "name": "comment.line.double-dash.cyon"
+                }
+            ]
+        },
+        "constant": {
+            "match": "\\b(?:true|false|null)\\b",
+            "name": "constant.language.cyon"
+        },
+        "number": {
+            "match": "(?x)-?(?:0|[1-9]\\d*)(?:(?:\\.\\d+)?(?:[eE][+-]?\\d+)?)?",
+            "name": "constant.numeric.cyon"
+        },
+        "object": {
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.dictionary.begin.cyon"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.dictionary.end.cyon"
+                }
+            },
+            "name": "meta.structure.dictionary.cyon",
+            "patterns": [
+                {
+                    "include": "#comments"
+                },
+                {
+                    "match": "([\\w]+\\b|'[^']+'|\"[^\"]+\")",
+                    "name": "support.type.property-name.cyon"
+                },
+                {
+                    "begin": "(:)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.separator.dictionary.key-value.cyon"
+                        }
+                    },
+                    "end": "(,|\\n)|(?=\\})",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.separator.dictionary.pair.cyon"
+                        }
+                    },
+                    "name": "meta.structure.dictionary.value.cyon",
+                    "patterns": [
+                        {
+                            "include": "#value"
+                        }
+                    ]
+                }
+            ]
+        },
+        "string": {
+            "patterns": [
+                {
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.cyon"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.cyon"
+                        }
+                    },
+                    "name": "string.quoted.single.cyon",
+                    "patterns": [
+                        {
+                            "include": "#stringcontent"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.cyon"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.cyon"
+                        }
+                    },
+                    "name": "string.quoted.double.cyon",
+                    "patterns": [
+                        {
+                            "include": "#stringcontent"
+                        }
+                    ]
+                }
+            ]
+        },
+        "stringcontent": {
+            "patterns": [
+                {
+                    "match": "(?x)\\\\(?:[\"\\\\/bfnrt]|u[0-9a-fA-F]{4})",
+                    "name": "constant.character.escape.cyon"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "invalid.illegal.unrecognized-string-escape.cyon"
+                }
+            ]
+        },
+        "value": {
+            "patterns": [
+                {
+                    "include": "#constant"
+                },
+                {
+                    "include": "#number"
+                },
+                {
+                    "include": "#string"
+                },
+                {
+                    "include": "#array"
+                },
+                {
+                    "include": "#object"
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        }
+    }
+}

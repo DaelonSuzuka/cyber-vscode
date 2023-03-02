@@ -42,6 +42,7 @@
 			{
 				"id": "cyber",
 				"aliases": [
+					"Cyber",
 					"cyberlang",
 					"cy"
 				],
@@ -50,6 +51,26 @@
 					".cyb"
 				],
 				"configuration": "./configurations/cyber-configuration.json"
+			},
+			{
+				"id": "cyon",
+                "aliases": [
+					"CYON"
+				],
+				"extensions": [
+					".cyon"
+				],
+				"configuration": "./configurations/cyon-configuration.json"
+			},
+			{
+				"id": "cydn",
+                "aliases": [
+					"cydn"
+				],
+				"extensions": [
+					".cydn"
+				],
+				"configuration": "./configurations/cydn-configuration.json"
 			}
 		],
         "grammars": [
@@ -57,6 +78,16 @@
 				"language": "cyber",
 				"scopeName": "source.cyber",
 				"path": "./syntaxes/cyber.tmLanguage.json"
+			},
+			{
+				"language": "cyon",
+				"scopeName": "source.cyon",
+				"path": "./syntaxes/cyon.tmLanguage.json"
+			},
+			{
+				"language": "cydn",
+				"scopeName": "source.cydn",
+				"path": "./syntaxes/cydn.tmLanguage.json"
 			}
 		]
     },

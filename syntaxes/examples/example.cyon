@@ -1,0 +1,10 @@
+{
+    name: 'John Doe'
+    'age': 25
+    -- This is a comment
+    cities: [
+        'New York'
+        'San Francisco'
+        'Tokyo'
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "cydn",
+    "fileTypes": ["cydn"],
+    "scopeName": "source.cydn"
+}
