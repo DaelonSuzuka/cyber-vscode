@@ -101,5 +101,8 @@
 		"vsce": "^2.10.0"
 	},
 	"dependencies": {
+		"global": "^4.4.0",
+		"vscode-debugadapter": "^1.38.0",
+		"vscode-languageclient": "^7.0.0"
 	}
 }
