@@ -16,9 +16,12 @@ VSCode support for the [Cyber](https://cyberscript.dev/) Programming Language.
 ![Basic syntax highlighting](img/highlighting.png)
 
 
-
 # Roadmap
 
 - finish syntax support
 - formatter
 - language server
+
+# Supporters
+
+[fubar](https://github.com/fubark) - creator of the Cyber language
