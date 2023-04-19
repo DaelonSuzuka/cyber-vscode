@@ -1,52 +1,52 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Cyber",
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Cyber",
     "fileTypes": ["cy", "cyb"],
     "scopeName": "source.cyber",
-	"patterns": [
+    "patterns": [
         {
-			"include": "#comment"
-		},
-		{
-			"include": "#tag_declaration"
-		},
-		{
-			"include": "#base_expression"
-		},
-		{
-			"include": "#builtin_func"
-		},
-		{
-			"include": "#function_declaration"
-		},
-		{
-			"include": "#object_declaration"
-		},
-		{
-			"include": "#function_call"
-		},
-		{
-			"include": "#control_flow"
-		},
-		{
-			"include": "#numbers"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.language.cyber",
-				"match": "\\b(true|false|none|as|var|is|coinit|coresume|coyield|capture|static|export)\\b"
-			}]
-		},
-		"control_flow": {
-			"patterns": [{
-				"name": "keyword.control.cyber",
-				"match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass|import)\\b"
-			}]
-		},
-		"base_expression": {
-			"patterns": [
+            "include": "#comment"
+        },
+        {
+            "include": "#enum_declaration"
+        },
+        {
+            "include": "#base_expression"
+        },
+        {
+            "include": "#builtin_func"
+        },
+        {
+            "include": "#function_declaration"
+        },
+        {
+            "include": "#object_declaration"
+        },
+        {
+            "include": "#function_call"
+        },
+        {
+            "include": "#control_flow"
+        },
+        {
+            "include": "#numbers"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.language.cyber",
+                "match": "\\b(true|false|none|as|var|is|coinit|coresume|coyield|capture|static|export)\\b"
+            }]
+        },
+        "control_flow": {
+            "patterns": [{
+                "name": "keyword.control.cyber",
+                "match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass|import)\\b"
+            }]
+        },
+        "base_expression": {
+            "patterns": [
                 {
                     "include": "#keywords"
                 },
@@ -69,7 +69,7 @@
                     "include": "#tags"
                 }
             ]
-		},
+        },
         "types": {
             "match": "\\b(int|bool|float)\\b",
             "name": "entity.name.type.class.cyber"
@@ -83,7 +83,7 @@
             "name": "entity.name.function.cyber"
         },
         "object_declaration": {
-            "match": "(object)\\s*([a-zA-Z_]\\w*)\\s*(:)",
+            "match": "(type) \\s*([a-zA-Z_]\\w*)\\s* (object)(:)",
             "captures": {
                 "1": {
                     "name": "keyword.language.cyber"
@@ -92,6 +92,9 @@
                     "name": "entity.name.type.object.cyber"
                 },
                 "3": {
+                    "name": "keyword.language.cyber"
+                },
+                "4": {
                     "name": "punctuation.section.object.begin.cyber"
                 }
             }
@@ -138,8 +141,8 @@
                 }
             ]
         },
-        "tag_declaration": {
-            "match": "(tagtype)\\s*([a-zA-Z_]\\w*)\\s*(:)",
+        "enum_declaration": {
+            "match": "(type) \\s*([a-zA-Z_]\\w*)\\s* (enum)(:)",
             "captures": {
                 "1": {
                     "name": "keyword.language.cyber"
@@ -148,6 +151,9 @@
                     "name": "entity.name.type.tag.cyber"
                 },
                 "3": {
+                    "name": "keyword.language.cyber"
+                },
+                "4": {
                     "name": "punctuation.section.tag.begin.cyber"
                 }
             }
@@ -267,7 +273,7 @@
             "match": "=",
             "name": "keyword.operator.assignment.cyber"
         },
-		"strings": {
+        "strings": {
             "patterns": [
                 {
                     "name": "string.quoted.double.cyber",
@@ -292,7 +298,7 @@
                     ]
                 }
             ]
-		},
+        },
         "numbers": {
             "patterns": [
                 {
@@ -325,20 +331,19 @@
                 }
             ]
         },
-		"comment": {
-			"patterns": [
-				{
-					"begin": "--",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.comment.cyber"
-						}
-					},
-					"end": "\\n",
-					"name": "comment.line.double-dash.cyber"
-				}
-			]
-		}
-	},
-	"scopeName": "source.cyber"
+        "comment": {
+            "patterns": [
+                {
+                    "begin": "--",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.cyber"
+                        }
+                    },
+                    "end": "\\n",
+                    "name": "comment.line.double-dash.cyber"
+                }
+            ]
+        }
+    }
 }

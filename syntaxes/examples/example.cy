@@ -106,7 +106,7 @@ for 1..101 each i:
     else:
         print i
 
-tagtype Fruit:
+type Fruit enum:
     apple
     orange
     banana
@@ -117,7 +117,7 @@ print fruit          -- '#kiwi'
 print number(fruit)  -- '3'
 
 
-object Test:
+type Test object:
     value
     other_value
 
