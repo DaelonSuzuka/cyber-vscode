@@ -237,6 +237,9 @@
                     "include": "#compare_op"
                 },
                 {
+                    "include": "#bitwise_op"
+                },
+                {
                     "include": "#arithmetic_op"
                 },
                 {
@@ -251,6 +254,10 @@
         "compare_op": {
             "match": "<=|>=|==|<|>|!=",
             "name": "keyword.operator.comparison.cyber"
+        },
+        "bitwise_op": {
+            "match": "&|[|]|(?:\\|\\|)|>>|<<|~",
+            "name": "keyword.operator.bitwise.cyber"
         },
         "arithmetic_op": {
             "match": "\\+=|-=|\\*=|/=|%=|&=|\\|=|\\*|/|%|\\+|-|<<|>>|&|\\||\\^|~",

@@ -9,6 +9,14 @@ a = 0xFF     -- hex.
 a = 0o17     -- octal.
 a = 0b1010   -- binary.
 
+a & b
+a | b
+a || b
+a >> b
+a << b
+~a
+
+
 func foo():
     pass
 
