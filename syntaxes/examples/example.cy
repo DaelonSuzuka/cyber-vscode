@@ -2,7 +2,7 @@ import m 'math'
 
 -- comments
 
-a = 1.0 -- comments after code
+my a = 1.0 -- comments after code
 a = 123.0e4 -- comments after code
 
 a = 0xFF     -- hex.
@@ -16,10 +16,8 @@ a >> b
 a << b
 ~a
 
-
 func foo():
     pass
-
 
 func add(x float, y float) float:
     return x + y
@@ -32,8 +30,8 @@ print(fib(30))
 
 worlds = ['World', '世界', 'दुनिया', 'mundo']
 worlds.append(m.random())
-for worlds each w:
-    print 'Hello, {w}!'
+for worlds -> w:
+    print 'Hello, $(w)!'
 
 print('test')
 
@@ -63,25 +61,25 @@ print list.len()  -- Prints '2'
 list.sort((a, b) => a < b)
 
 -- Iterating a list.
-for list each it:
+for list -> it:
     print it
 
 -- Remove an element at a specific index.
 list.remove(1)
 
-map = { a: 123, b: () => 5 }
+var map = [ a: 123, b: () => 5 ]
 print map['a']
 
 -- You can also access the map using an access expression.
 print map.a
 
 -- Map entries can be separated by the new line.
-map = {
-    foo: 1
-    bar: 2
-}
+map = [
+    foo: 1,
+    bar: 2,
+]
 
-colors = {}:
+colors = []:
     red: 0xFF0000
     green: 0x00FF00
     blue: 0x0000FF
@@ -91,12 +89,12 @@ colors = {}:
         print c.blue
 
     -- Nested map.
-    darker {}:
+    darker []:
         red: 0xAA0000
         green: 0x00AA00
         blue: 0x0000AA
 
-for 1..101 each i:
+for 1..101 -> i:
     if i % 3 == 0 and i % 5 == 0:
         print 'FizzBuzz'
     else i % 3 == 0:
@@ -107,18 +105,18 @@ for 1..101 each i:
         print i
 
 type Fruit enum:
-    apple
-    orange
-    banana
-    kiwi
+    case apple
+    case orange
+    case banana
+    case kiwi
 
-fruit = Fruit#kiwi
+fruit = Fruit.kiwi
 print fruit          -- '#kiwi'
-print number(fruit)  -- '3'
+print int(fruit)  -- '3'
 
 
 type Test object:
-    value
-    other_value
+    var value
+    var other_value
 
-test = Test { value: 0.0, other_value: 'test' } 
+var test = [Test value: 0.0, other_value: 'test']
