@@ -36,13 +36,13 @@
         "keywords": {
             "patterns": [{
                 "name": "keyword.language.cyber",
-                "match": "\\b(true|false|none|as|var|is|coinit|coresume|coyield|capture|static|export)\\b"
+                "match": "\\b(true|false|none|as|var|my|coinit|coresume|coyield)\\b"
             }]
         },
         "control_flow": {
             "patterns": [{
                 "name": "keyword.control.cyber",
-                "match": "\\b(if|then|else|try|catch|for|while|each|break|return|pass|import)\\b"
+                "match": "\\b(if|else|try|catch|for|while|switch|case|break|return|pass|import|throw)\\b"
             }]
         },
         "base_expression": {
